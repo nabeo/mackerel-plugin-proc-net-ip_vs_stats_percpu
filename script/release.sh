@@ -6,7 +6,7 @@ if [ -z "$release_tag" ] ; then
   echo "please set release tag"
   exit 1
 fi
-git tag "$release_tag"
+git tag -l | grep "$release_tag" || git tag "$release_tag"
 
 repo_root=$(git rev-parse --show-toplevel)
 if [ -z "$repo_root" ]; then
@@ -23,9 +23,9 @@ fi
 plugin_name=$(basename "$repo_root")
 repository=$(basename "$(dirname "$repo_root")")
 goxz_cmd=$(command -v goxz)
-test -z "$goxz_cmd" || go get -uv github.com/Songmu/goxz/cmd/goxz
+test ! -z "$goxz_cmd" || go get -uv github.com/Songmu/goxz/cmd/goxz
 ghr_cmd=$(command -v ghr)
-test -z "$ghr_cmd" || go get -uv github.com/tcnksm/ghr
+test ! -z "$ghr_cmd" || go get -uv github.com/tcnksm/ghr
 
 echo "release : $repository/$plugin_name @ $release_tag"
 
