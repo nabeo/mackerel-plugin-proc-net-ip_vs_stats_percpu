@@ -28,25 +28,28 @@ type IPVSCpustatData struct {
   OutBytes float64
 }
 
+// KeyPrefixTemplate ...
+var KeyPrefixTemplate = "proc.net.ip_vs_stats_percpu.#"
+
 // define graph
 var graphdef = map[string]mp.Graphs{
-  "ipvs.cpu.#.conns": {
-    Label: "Connections",
+  KeyPrefixTemplate + ".conns": {
+    Label: "ip_vs_stats_percpu Connections",
     Unit: "integer",
     Metrics: []mp.Metrics {
       {Name: "conn", Label: "Connections", Diff: true },
     },
   },
-  "ipvs.cpu.#.packets": {
-    Label: "Packets",
+  KeyPrefixTemplate + ".packets": {
+    Label: "ip_vs_stats_percpu Packets",
     Unit: "integer",
     Metrics: []mp.Metrics {
       { Name: "in", Label: "Incoming Packets", Diff: true },
       { Name: "out", Label: "Outgoing Packets", Diff: true },
     },
   },
-  "ipvs.cpu.#.bytes": {
-    Label: "Bytes",
+  KeyPrefixTemplate + ".bytes": {
+    Label: "ip_vs_stats_percpu Bytes",
     Unit: "bytes",
     Metrics: []mp.Metrics {
       { Name: "in", Label: "Incoming Packets", Diff: true },
@@ -93,7 +96,7 @@ func (r IPVSCpustatPlugin) Parse(stat io.Reader) (map[string]float64, error) {
     if int(CPUNum) >= r.CPUs {
       continue
     }
-    KeyPrefix := strings.Replace("ipvs.cpu.#", "#", fmt.Sprint(CPUNum), -1)
+    KeyPrefix := strings.Replace(KeyPrefixTemplate, "#", fmt.Sprint(CPUNum), -1)
     d, err := CPUStatData(fields)
     if err != nil {
       return nil, err
