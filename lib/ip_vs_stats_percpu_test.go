@@ -54,29 +54,29 @@ CPU    Conns  Packets  Packets            Bytes            Bytes
   //        Total Incoming Outgoing         Incoming         Outgoing
   // CPU    Conns  Packets  Packets            Bytes            Bytes
   //   0    EC76C   2A6BB9        0          AD77113                0
-  assert.EqualValues(t, 968556,    a["ipvs.cpu.0.conns.conn"])
-  assert.EqualValues(t, 2780089,   a["ipvs.cpu.0.packets.in"])
-  assert.EqualValues(t, 0,         a["ipvs.cpu.0.packets.out"])
-  assert.EqualValues(t, 181891347, a["ipvs.cpu.0.bytes.in"])
-  assert.EqualValues(t, 0,         a["ipvs.cpu.0.bytes.out"])
+  assert.EqualValues(t, 968556,    a["proc.net.ip_vs_stats_percpu.0.conns.conn"])
+  assert.EqualValues(t, 2780089,   a["proc.net.ip_vs_stats_percpu.0.packets.in"])
+  assert.EqualValues(t, 0,         a["proc.net.ip_vs_stats_percpu.0.packets.out"])
+  assert.EqualValues(t, 181891347, a["proc.net.ip_vs_stats_percpu.0.bytes.in"])
+  assert.EqualValues(t, 0,         a["proc.net.ip_vs_stats_percpu.0.bytes.out"])
 
   //        Total Incoming Outgoing         Incoming         Outgoing
   // CPU    Conns  Packets  Packets            Bytes            Bytes
   //   1      C63     2127        0            87C64                0
-  assert.EqualValues(t, 3171,   a["ipvs.cpu.1.conns.conn"])
-  assert.EqualValues(t, 8487,   a["ipvs.cpu.1.packets.in"])
-  assert.EqualValues(t, 0,      a["ipvs.cpu.1.packets.out"])
-  assert.EqualValues(t, 556132, a["ipvs.cpu.1.bytes.in"])
-  assert.EqualValues(t, 0,      a["ipvs.cpu.1.bytes.out"])
+  assert.EqualValues(t, 3171,   a["proc.net.ip_vs_stats_percpu.1.conns.conn"])
+  assert.EqualValues(t, 8487,   a["proc.net.ip_vs_stats_percpu.1.packets.in"])
+  assert.EqualValues(t, 0,      a["proc.net.ip_vs_stats_percpu.1.packets.out"])
+  assert.EqualValues(t, 556132, a["proc.net.ip_vs_stats_percpu.1.bytes.in"])
+  assert.EqualValues(t, 0,      a["proc.net.ip_vs_stats_percpu.1.bytes.out"])
 
   //        Total Incoming Outgoing         Incoming         Outgoing
   // CPU    Conns  Packets  Packets            Bytes            Bytes
   //  13      C84     244A        0            965E7                0
-  assert.EqualValues(t, 3204,   a["ipvs.cpu.19.conns.conn"])
-  assert.EqualValues(t, 9290,   a["ipvs.cpu.19.packets.in"])
-  assert.EqualValues(t, 0,      a["ipvs.cpu.19.packets.out"])
-  assert.EqualValues(t, 615911, a["ipvs.cpu.19.bytes.in"])
-  assert.EqualValues(t, 0,      a["ipvs.cpu.19.bytes.out"])
+  assert.EqualValues(t, 3204,   a["proc.net.ip_vs_stats_percpu.19.conns.conn"])
+  assert.EqualValues(t, 9290,   a["proc.net.ip_vs_stats_percpu.19.packets.in"])
+  assert.EqualValues(t, 0,      a["proc.net.ip_vs_stats_percpu.19.packets.out"])
+  assert.EqualValues(t, 615911, a["proc.net.ip_vs_stats_percpu.19.bytes.in"])
+  assert.EqualValues(t, 0,      a["proc.net.ip_vs_stats_percpu.19.bytes.out"])
 
   // 20 (LvsCpustat.CPUs) * 5 (fields)
   assert.EqualValues(t, 100, len(a))
@@ -120,20 +120,20 @@ CPU    Conns  Packets  Packets            Bytes            Bytes
   //        Total Incoming Outgoing         Incoming         Outgoing
   // CPU    Conns  Packets  Packets            Bytes            Bytes
   //   0    EC76C   2A6BB9        0          AD77113                0
-  assert.EqualValues(t, 968556,    b["ipvs.cpu.0.conns.conn"])
-  assert.EqualValues(t, 2780089,   b["ipvs.cpu.0.packets.in"])
-  assert.EqualValues(t, 0,         b["ipvs.cpu.0.packets.out"])
-  assert.EqualValues(t, 181891347, b["ipvs.cpu.0.bytes.in"])
-  assert.EqualValues(t, 0,         b["ipvs.cpu.0.bytes.out"])
+  assert.EqualValues(t, 968556,    b["proc.net.ip_vs_stats_percpu.0.conns.conn"])
+  assert.EqualValues(t, 2780089,   b["proc.net.ip_vs_stats_percpu.0.packets.in"])
+  assert.EqualValues(t, 0,         b["proc.net.ip_vs_stats_percpu.0.packets.out"])
+  assert.EqualValues(t, 181891347, b["proc.net.ip_vs_stats_percpu.0.bytes.in"])
+  assert.EqualValues(t, 0,         b["proc.net.ip_vs_stats_percpu.0.bytes.out"])
 
   //        Total Incoming Outgoing         Incoming         Outgoing
   // CPU    Conns  Packets  Packets            Bytes            Bytes
   //   1      C63     2127        0            87C64                0
-  assert.EqualValues(t, 3171,   b["ipvs.cpu.1.conns.conn"])
-  assert.EqualValues(t, 8487,   b["ipvs.cpu.1.packets.in"])
-  assert.EqualValues(t, 0,      b["ipvs.cpu.1.packets.out"])
-  assert.EqualValues(t, 556132, b["ipvs.cpu.1.bytes.in"])
-  assert.EqualValues(t, 0,      b["ipvs.cpu.1.bytes.out"])
+  assert.EqualValues(t, 3171,   b["proc.net.ip_vs_stats_percpu.1.conns.conn"])
+  assert.EqualValues(t, 8487,   b["proc.net.ip_vs_stats_percpu.1.packets.in"])
+  assert.EqualValues(t, 0,      b["proc.net.ip_vs_stats_percpu.1.packets.out"])
+  assert.EqualValues(t, 556132, b["proc.net.ip_vs_stats_percpu.1.bytes.in"])
+  assert.EqualValues(t, 0,      b["proc.net.ip_vs_stats_percpu.1.bytes.out"])
 }
 
 func TestHex2Float64(t *testing.T) {
